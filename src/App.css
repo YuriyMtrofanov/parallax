@@ -77,23 +77,23 @@
   }
 
   .layer-1 {
-    transform: translateZ(-100px) scale(1.06);
+    transform: translateZ(-60px) scale(1.06);
   }
 
   .layer-2 {
-    transform: translateZ(50px) scale(0.8);
+    transform: translateZ(160px) scale(0.8);
   }
 
   .layer-3 {
-    transform: translateZ(120px) scale(0.8);
+    transform: translateZ(180px) scale(0.8);
   }
 
   .layer-4 {
-    transform: translateZ(190px) scale(0.8);
+    transform: translateZ(200px) scale(0.8);
   }
 
   .layer-5 {
-    transform: translateZ(200px) scale(0.9);
+    transform: translateZ(220px) scale(0.9);
   }
 
   .layer-6 {
