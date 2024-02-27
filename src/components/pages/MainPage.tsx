@@ -1,11 +1,10 @@
 import React from "react";
-// import animateRain from "./extentions/UI/rainDrops";
+import animateRain from "../extentions/UI/rainDrops";
 import logo from "../extentions/img/logo.svg";
 import layer_1 from "../extentions/img/layer_1.jpg";
 import layer_2 from "../extentions/img/layer_2.png";
 import layer_5 from "../extentions/img/layer_5.png";
 import layer_6 from "../extentions/img/layer_6.png";
-
 
 const MainPage: React.FC = () => {
     // добавляем свойство style для корневого элемента HTML (весь экран)
@@ -16,11 +15,12 @@ const MainPage: React.FC = () => {
     document.addEventListener("mousemove", e => {
         Object.assign(document.documentElement, {
             style: `
-                --move-x: ${(e.clientX - (window.innerWidth / 2)) * -0.005}deg;
+                --move-x: ${(e.clientX - (window.innerWidth / 2)) * 0.005}deg;
                 --move-y: ${(e.clientY - (window.innerHeight / 2)) * -0.01}deg;
             `
         });
     });
+    // console.log("animateRain()", animateRain);
     return (
         <>
             <div className="logo">
@@ -49,13 +49,12 @@ const MainPage: React.FC = () => {
                     <div className="layers__item layer-5">
                         <img src={layer_5} alt="layer_5" />
                     </div>
-                    {/* <div className="layers__item layer-6">
+                    <div className="layers__item layer-6">
                         <img src={layer_6} alt="layer_6" />
-                    </div> */}
+                    </div>
                 </div>
             </section>
         </>
-
     );
 };
 

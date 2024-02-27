@@ -1,11 +1,15 @@
 * {
     margin: 0;
     padding: 0;
-    /* box-sizing: border-box; */
+    box-sizing: border-box;
   }
   
   :root {
-  
+    /* данный индекс будет использоваться для адаптации текста и логотипа
+    под пропорции экрана */
+    --index: calc(1vw + 1vh);
+    /* Для более плавной анимации зададим переменную */
+    --transition: 1.5s cubic-bezier(0.05, 0.05, 0.00, 1.00);
   }
   
   @font-face {
@@ -24,12 +28,21 @@
       background-color: black;
       color: aliceblue;
       font-family: kamerik-local;
+      /* position: relative; */
   }
   
   .logo {
-      width: 150px;
-      height: 150px;
+      --logo-size: calc(var(--index) * 7.8);
+      width: var(--logo-size);
+      height: var(--logo-size);
+      background-repeat: no-repeat;
       position: absolute;
+      /* Если указывать левый отступ 50% то логотип не будет центрирован,
+      центрирован будет его левый край, поэтому нужно вычислить центр лого
+      и уже от него сделать отступ 50% */
+      left: calc(50% - calc(var(--logo-size) / 2));
+      top: calc(var(--index) * 2.8);
+      z-index: 1;
   }
   
   .layers {
@@ -39,12 +52,21 @@
   
   .layers__container {
       height: 100vh;
+      min-height: 500px;
       transform-style: preserve-3d;
       transform: rotateX(var(--move-y)) rotateY(var(--move-x));
+      /* Здесь мы говорим браузеру, чтобы он выделил больше ресурсов для transform
+      это обязательное свойство при использовании динамических параметров*/
+      will-change: transform;
+      transition: transform var(--transition);
   }
   
   .layers__item {
       position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* max-height: 100vh; */
       /* top: -5vw;
       left: -5vw;
       right: -5vw;
@@ -55,15 +77,15 @@
   }
 
   .layer-1 {
-    transform: translateZ(-55px) scale(0.9);
+    transform: translateZ(-100px) scale(1.06);
   }
 
   .layer-2 {
-    transform: translateZ(80px) scale(0.8);
+    transform: translateZ(50px) scale(0.8);
   }
 
   .layer-3 {
-    transform: translateZ(180px) scale(0.8);
+    transform: translateZ(120px) scale(0.8);
   }
 
   .layer-4 {
@@ -71,9 +93,51 @@
   }
 
   .layer-5 {
-    transform: translateZ(200px) scale(0.8);
+    transform: translateZ(200px) scale(0.9);
   }
 
   .layer-6 {
-    transform: translateZ(220px) scale(0.8);
+    transform: translateZ(250px);
   }
+
+.hero-content {
+  font-size: calc(var(--index) * 2.9);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: calc(var(--index) * -0.15);
+  line-height: 1.35em;
+  margin-top: calc(var(--index) * 5.5);
+}
+
+.hero-content span {
+  display: block;
+}
+
+.hero-content__p {
+  text-transform: none;
+  letter-spacing: normal;
+  font-family: merriweather-italic-local;
+  font-size: calc(var(--index) * 0.8);
+  line-height: 3;
+}
+
+.button-start {
+  font-family: Arial;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: calc(var(--index) * 0.7);
+  letter-spacing: -0.02vw;
+  padding: calc(var(--index) * 0.7) calc(var(--index) * 1.25);
+  background-color: transparent;
+  color: aliceblue;
+  border-radius: 10em;
+  border: rgb(255 255 255 / 0.4) 3px solid;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Так как слои 4, 5 и 6 находятся выше кнопки, то они мешают взаимодействию сней
+Чтобы это исправить не трогая порядок слоев, воспользуемя свойством pointer-events*/
+.layer-4, .layer-5, .layer-6 {
+  pointer-events: none;
+}
