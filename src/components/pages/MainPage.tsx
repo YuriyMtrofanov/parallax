@@ -1,5 +1,6 @@
 import React from "react";
 import animateRain from "../extentions/UI/rainDrops";
+import { NavLink } from "react-router-dom";
 import logo from "../extentions/img/logo.svg";
 import layer_1 from "../extentions/img/layer_1.jpg";
 import layer_2 from "../extentions/img/layer_2.png";
@@ -40,7 +41,9 @@ const MainPage: React.FC = () => {
                             <div className="hero-content__p">
                                 Creating a beautiful 3D website with a lens effect
                             </div>
-                            <button className="button-start">Start learning</button>
+                            <NavLink className="nav-link text-light" to="/about">
+                                <button className="button-start">Start learning</button>
+                            </NavLink>
                         </div>
                     </div>
                     <div className="layers__item layer-4">
