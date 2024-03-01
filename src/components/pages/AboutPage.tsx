@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const AboutPage: React.FC = () => {
     return (
         <div className="about-page-content">
-            <h1>About this progect</h1>
+            <h1>About this project</h1>
             <div className="about-page-content__p">
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde officia, inventore maiores quod nesciunt aliquid. Nobis cupiditate possimus id, officia, animi velit perferendis iure nesciunt in, atque et dolorum commodi.
                 Ipsum numquam commodi magni perspiciatis at dolorem sequi suscipit molestiae, aut, explicabo quis tempore. Tempora iure dolorum quis laudantium facere quod reiciendis. Modi saepe, beatae ipsa recusandae autem numquam repellat!

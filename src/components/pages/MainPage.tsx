@@ -1,5 +1,5 @@
 import React from "react";
-import animateRain from "../extentions/UI/rainDrops";
+// import animateRain from "../extentions/UI/rainDrops";
 import { NavLink } from "react-router-dom";
 import logo from "../extentions/img/logo.svg";
 import layer_1 from "../extentions/img/layer_1.jpg";
